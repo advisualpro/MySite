@@ -2,472 +2,511 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="навырост. — бесплатные калькуляторы, шаблоны и гайды для предпринимателей. Юнит-экономика, P&L, налоги — вводишь свои цифры, видишь результат за 2 минуты.">
-<title>навырост. — платформа инструментов для бизнеса</title>
+<title>навырост. — инструменты для бизнеса</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:#FAFBFC;font-family:'Space Grotesk',sans-serif;color:#1E293B;overflow-x:hidden}
+body{font-family:'Space Grotesk',sans-serif;background:#0A0E1A;color:#E2E8F0;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
 
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:14px 32px;background:rgba(240,242,245,.72);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(226,232,240,.5)}
-.logo{font-size:18px;font-weight:700;color:#0F172A;text-decoration:none;letter-spacing:-.3px}
-.logo span{color:#3B82F6}
-nav .cta-nav{padding:8px 20px;border-radius:10px;font-size:13px;font-weight:600;background:linear-gradient(135deg,#3B82F6,#2563EB);color:#fff;border:none;cursor:pointer;transition:transform .3s,box-shadow .3s}
-nav .cta-nav:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(59,130,246,.3)}
+/* ===== NAV ===== */
+nav{position:fixed;top:0;left:0;width:100%;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;z-index:100;background:rgba(10,14,26,.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.06)}
+.logo{font-size:20px;font-weight:700;letter-spacing:-0.5px}
+.logo em{color:#3B82F6;font-style:normal}
+nav a.nav-cta{font-size:13px;padding:8px 18px;border-radius:20px;background:linear-gradient(135deg,#3B82F6,#8B5CF6);color:#fff;font-weight:600;transition:transform .2s}
 
-.hero{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:100px 24px 32px;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(59,130,246,.07) 0%,rgba(16,185,129,.04) 40%,transparent 70%);pointer-events:none;animation:hero-glow 6s ease-in-out infinite alternate}
-@keyframes hero-glow{0%{opacity:.6;transform:translateX(-50%) scale(1)}100%{opacity:1;transform:translateX(-50%) scale(1.15)}}
-.hero h1{font-size:42px;font-weight:700;letter-spacing:-.8px;line-height:1.15;color:#0F172A;max-width:720px;position:relative;z-index:1}
-.hero h1 em{font-style:normal;background:linear-gradient(135deg,#3B82F6,#10B981);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.hero .sub{font-size:15px;color:#64748B;margin-top:12px;max-width:540px;line-height:1.55;position:relative;z-index:1}
-.hero .tags{display:flex;gap:8px;justify-content:center;margin-top:20px;flex-wrap:wrap;position:relative;z-index:1}
-.hero .tag{padding:7px 16px;border-radius:20px;font-size:12px;font-weight:600;background:#EFF6FF;border:1px solid #DBEAFE;color:#3B82F6;transition:all .3s;cursor:default}
-.hero .tag:hover{background:#DBEAFE;border-color:#93C5FD;transform:translateY(-2px);box-shadow:0 3px 12px rgba(59,130,246,.1)}
-.hero .cta-row{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap;justify-content:center;position:relative;z-index:1}
-.btn-p{display:inline-flex;align-items:center;gap:8px;padding:15px 30px;border-radius:14px;font-size:15px;font-weight:700;border:none;cursor:pointer;background:linear-gradient(135deg,#3B82F6,#2563EB);color:#fff;box-shadow:0 4px 24px rgba(59,130,246,.25);transition:transform .3s cubic-bezier(.34,1.56,.64,1),box-shadow .3s}
-.btn-p:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 8px 32px rgba(59,130,246,.35)}
-.btn-p .arr{transition:transform .3s}.btn-p:hover .arr{transform:translateX(4px)}
-.btn-s{display:inline-flex;align-items:center;gap:6px;padding:15px 28px;border-radius:14px;font-size:15px;font-weight:600;border:2px solid #DBEAFE;background:#fff;color:#3B82F6;cursor:pointer;transition:all .3s}
-.btn-s:hover{border-color:#93C5FD;box-shadow:0 4px 16px rgba(59,130,246,.1);transform:translateY(-2px)}
+/* ===== HERO ===== */
+.hero{padding:100px 24px 40px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-60%;left:-30%;width:160%;height:160%;background:radial-gradient(ellipse at 50% 40%,rgba(59,130,246,.12) 0%,rgba(139,92,246,.06) 40%,transparent 70%);pointer-events:none;animation:heroPulse 6s ease-in-out infinite}
+@keyframes heroPulse{0%,100%{opacity:.6;transform:scale(1)}50%{opacity:1;transform:scale(1.05)}}
+.hero h1{font-size:36px;font-weight:700;line-height:1.15;letter-spacing:-1px;margin-bottom:16px;position:relative}
+.hero h1 em{font-style:normal;background:linear-gradient(135deg,#3B82F6,#A78BFA);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero-sub{font-size:15px;color:#94A3B8;line-height:1.6;max-width:480px;margin:0 auto 28px}
+.hero-cta{display:inline-block;padding:14px 32px;border-radius:28px;background:linear-gradient(135deg,#3B82F6,#8B5CF6);color:#fff;font-weight:700;font-size:15px;position:relative;animation:ctaGlow 2.5s ease-in-out infinite}
+@keyframes ctaGlow{0%,100%{box-shadow:0 0 12px rgba(59,130,246,.3)}50%{box-shadow:0 0 28px rgba(139,92,246,.5),0 0 56px rgba(59,130,246,.2)}}
+.hero-tags{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:20px}
+.hero-tag{font-size:12px;padding:6px 14px;border-radius:20px;background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.2);color:#93C5FD}
 
-.stats{display:flex;justify-content:center;gap:32px;padding:28px 24px 36px;flex-wrap:wrap}
-.stat{text-align:center;padding:16px 20px;background:#fff;border-radius:16px;border:1px solid #F1F5F9;box-shadow:0 1px 8px rgba(0,0,0,.02);transition:transform .3s,box-shadow .3s;min-width:100px}
-.stat:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(59,130,246,.08)}
-.stat-n{font-size:32px;font-weight:700;background:linear-gradient(135deg,#3B82F6,#10B981);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.stat-l{font-size:11px;color:#94A3B8;margin-top:2px;font-weight:500}
+/* ===== STATS ===== */
+.stats{display:flex;justify-content:center;gap:16px;padding:20px 24px 32px;flex-wrap:wrap}
+.stat-card{text-align:center;padding:16px 20px;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);min-width:90px;position:relative;overflow:hidden}
+.stat-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#3B82F6,#8B5CF6);opacity:0;transition:opacity .3s}
+.stat-card.visible::after{opacity:1}
+.stat-card .num{font-size:28px;font-weight:700;background:linear-gradient(135deg,#3B82F6,#A78BFA);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-card .label{font-size:11px;color:#64748B;margin-top:4px}
 
-.sec-title{text-align:center;font-size:28px;font-weight:700;letter-spacing:-.5px;color:#0F172A;margin-bottom:6px}
-.sec-title em{font-style:normal;background:linear-gradient(135deg,#3B82F6,#10B981);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.sec-sub{text-align:center;font-size:14px;color:#94A3B8;margin-bottom:32px}
+/* ===== SECTION TITLES ===== */
+.sec-title{text-align:center;font-size:26px;font-weight:700;letter-spacing:-0.5px;padding:0 24px;margin-bottom:8px}
+.sec-title em{font-style:normal;background:linear-gradient(135deg,#3B82F6,#A78BFA);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.sec-sub{text-align:center;font-size:14px;color:#64748B;padding:0 24px;margin-bottom:24px}
 
-/* ── MAP SECTION — desktop: split, mobile: accordion ── */
-.map-section{padding:40px 24px 48px;max-width:980px;margin:0 auto}
+/* ===== MAP (ACCORDION MOBILE) ===== */
+.map-sec{padding:32px 0}
+.map-desk{display:none}
+.mob-map{padding:0 16px}
+.mob-dir{margin-bottom:8px;border-radius:14px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);overflow:hidden;transition:border-color .3s}
+.mob-dir.active{border-color:rgba(59,130,246,.4)}
+.mob-dir-head{display:flex;align-items:center;gap:12px;padding:14px 16px;cursor:pointer;-webkit-tap-highlight-color:transparent;position:relative}
+.mob-dir-head .dir-icon{font-size:22px;width:40px;height:40px;display:flex;align-items:center;justify-content:center;border-radius:10px;background:rgba(59,130,246,.1);flex-shrink:0;transition:background .3s,transform .3s}
+.mob-dir.active .dir-icon{background:rgba(59,130,246,.25);transform:scale(1.1)}
+.mob-dir-head .dir-info{flex:1}
+.mob-dir-head .dir-name{font-weight:600;font-size:15px}
+.mob-dir-head .dir-hook{font-size:12px;color:#64748B;margin-top:2px}
+.mob-dir-head .dir-arrow{font-size:12px;color:#64748B;transition:transform .3s;flex-shrink:0}
+.mob-dir.active .dir-arrow{transform:rotate(180deg);color:#3B82F6}
+.mob-dir-body{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.mob-dir.active .mob-dir-body{max-height:600px}
+.mob-steps{padding:0 16px 16px}
+.mob-step-group{margin-bottom:12px}
+.mob-step-group-label{font-size:11px;color:#3B82F6;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+.mob-step{display:flex;align-items:center;gap:10px;padding:8px 12px;border-radius:10px;background:rgba(255,255,255,.04);margin-bottom:6px}
+.mob-step-num{width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,#3B82F6,#8B5CF6);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;flex-shrink:0}
+.mob-step-name{font-size:13px;color:#CBD5E1}
 
-/* Desktop split */
-.map-split{display:flex;gap:28px;align-items:flex-start}
-.dir-col{flex:0 0 280px;position:relative}
-.trunk{position:absolute;left:25px;top:28px;bottom:28px;width:3px;border-radius:2px;background:linear-gradient(to bottom,#3B82F6,#F59E0B,#10B981,#7C3AED,#EF4444);opacity:.12}
-.trunk .dot{position:absolute;left:-3px;width:9px;height:9px;border-radius:50%;opacity:0;filter:blur(1px);animation:fall linear infinite}
-.trunk .dot:nth-child(1){background:#3B82F6;animation-duration:3.8s}
-.trunk .dot:nth-child(2){background:#F59E0B;animation-duration:3.2s;animation-delay:.6s}
-.trunk .dot:nth-child(3){background:#10B981;animation-duration:4s;animation-delay:1.3s}
-.trunk .dot:nth-child(4){background:#7C3AED;animation-duration:3.5s;animation-delay:2s}
-.trunk .dot:nth-child(5){background:#EF4444;animation-duration:4.2s;animation-delay:2.8s}
-.trunk .dot:nth-child(6){background:#3B82F6;animation-duration:2.8s;animation-delay:.2s}
-.trunk .dot:nth-child(7){background:#10B981;animation-duration:3.6s;animation-delay:1.8s}
-@keyframes fall{0%{top:-8px;opacity:0;filter:blur(1px)}8%{opacity:.9;filter:blur(0)}85%{opacity:.5}100%{top:calc(100% + 8px);opacity:0;filter:blur(2px)}}
-.dir-item{display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:16px;cursor:pointer;transition:background .3s,box-shadow .3s;position:relative;z-index:2}
-.dir-item:hover,.dir-item.on{background:rgba(255,255,255,.85);box-shadow:0 2px 16px rgba(0,0,0,.04)}
-.di-ic{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:20px;background:#fff;border:2px solid #E2E8F0;box-shadow:0 2px 8px rgba(0,0,0,.04);transition:transform .4s cubic-bezier(.34,1.56,.64,1),box-shadow .4s,border-color .4s;position:relative;flex-shrink:0}
-.dir-item.on .di-ic{transform:scale(1.1) rotate(-3deg)}
-.di-ic::before{content:'';position:absolute;inset:-6px;border-radius:18px;opacity:0;transition:opacity .4s;pointer-events:none}
-.dir-item.on .di-ic::before{opacity:1;animation:breathe 2.5s ease-in-out infinite}
-@keyframes breathe{0%,100%{opacity:.25;transform:scale(1)}50%{opacity:.5;transform:scale(1.08)}}
-.c1 .di-ic{border-color:#93C5FD}.c1.on .di-ic{box-shadow:0 4px 24px rgba(59,130,246,.2);border-color:#3B82F6}.c1 .di-ic::before{background:rgba(59,130,246,.15)}
-.c2 .di-ic{border-color:#FDE68A}.c2.on .di-ic{box-shadow:0 4px 24px rgba(245,158,11,.2);border-color:#F59E0B}.c2 .di-ic::before{background:rgba(245,158,11,.15)}
-.c3 .di-ic{border-color:#6EE7B7}.c3.on .di-ic{box-shadow:0 4px 24px rgba(16,185,129,.2);border-color:#10B981}.c3 .di-ic::before{background:rgba(16,185,129,.15)}
-.c4 .di-ic{border-color:#C4B5FD}.c4.on .di-ic{box-shadow:0 4px 24px rgba(124,58,237,.2);border-color:#7C3AED}.c4 .di-ic::before{background:rgba(124,58,237,.15)}
-.c5 .di-ic{border-color:#FCA5A5}.c5.on .di-ic{box-shadow:0 4px 24px rgba(239,68,68,.2);border-color:#EF4444}.c5 .di-ic::before{background:rgba(239,68,68,.15)}
-.di-tx{display:flex;flex-direction:column;gap:2px}
-.di-name{font-size:15px;font-weight:700;color:#94A3B8;transition:color .3s}
-.dir-item.on .di-name{color:#0F172A}
-.di-hook{font-size:11px;color:#CBD5E1;transition:color .3s}
-.dir-item.on .di-hook{color:#94A3B8}
-
-/* Desktop steps panel */
-.steps-col{flex:1;min-height:360px;position:relative;background:#fff;border-radius:20px;box-shadow:0 2px 24px rgba(0,0,0,.04);overflow:hidden;border-top:3px solid transparent;transition:border-color .4s}
-.steps-col.bc1{border-color:#3B82F6}.steps-col.bc2{border-color:#F59E0B}.steps-col.bc3{border-color:#10B981}.steps-col.bc4{border-color:#7C3AED}.steps-col.bc5{border-color:#EF4444}
-.step-group{position:absolute;inset:0;opacity:0;transform:translateY(12px);transition:opacity .4s,transform .4s;pointer-events:none;display:flex;flex-direction:column;gap:8px;padding:24px}
-.step-group.on{opacity:1;transform:translateY(0);pointer-events:auto}
-.sg-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#94A3B8;margin-bottom:2px;margin-top:6px}
-.sg-label:first-child{margin-top:0}
-.pill{display:flex;align-items:center;gap:8px;padding:10px 16px 10px 10px;background:#FAFBFC;border:1px solid #F1F5F9;border-radius:14px;cursor:pointer;transition:all .35s cubic-bezier(.34,1.56,.64,1);opacity:0;transform:translateX(-12px) scale(.95);animation:pill-in .4s forwards}
-.pill:hover{transform:translateY(-3px) scale(1.03)!important;background:#fff}
-.c1-pills .pill:hover{box-shadow:0 6px 24px rgba(59,130,246,.12);border-color:#93C5FD}
-.c2-pills .pill:hover{box-shadow:0 6px 24px rgba(245,158,11,.12);border-color:#FDE68A}
-.c3-pills .pill:hover{box-shadow:0 6px 24px rgba(16,185,129,.12);border-color:#6EE7B7}
-.c4-pills .pill:hover{box-shadow:0 6px 24px rgba(124,58,237,.12);border-color:#C4B5FD}
-.c5-pills .pill:hover{box-shadow:0 6px 24px rgba(239,68,68,.12);border-color:#FCA5A5}
-@keyframes pill-in{to{opacity:1;transform:translateX(0) scale(1)}}
-.pill:nth-child(3){animation-delay:.06s}.pill:nth-child(4){animation-delay:.12s}.pill:nth-child(5){animation-delay:.18s}.pill:nth-child(6){animation-delay:.24s}.pill:nth-child(7){animation-delay:.3s}
-.pill .nm{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#fff;flex-shrink:0;transition:transform .3s}
-.pill:hover .nm{transform:scale(1.15) rotate(10deg)}
-.c1-pills .nm{background:#3B82F6}.c2-pills .nm{background:#F59E0B;color:#0F172A}.c3-pills .nm{background:#10B981}.c4-pills .nm{background:#7C3AED}.c5-pills .nm{background:#EF4444}
-.pill .lb{font-size:13px;color:#475569;font-weight:500;transition:color .2s}
-.pill:hover .lb{color:#0F172A}
-.pill::after{content:'→';font-size:11px;color:#CBD5E1;margin-left:auto;transition:transform .3s,color .3s,opacity .3s;opacity:0}
-.pill:hover::after{opacity:1;color:#94A3B8;transform:translateX(3px)}
-
-/* ── MOBILE ACCORDION (hidden on desktop) ── */
-.mob-map{display:none}
-.mob-dir{border-radius:16px;overflow:hidden;margin-bottom:8px;background:#fff;border:1px solid #F1F5F9;box-shadow:0 1px 6px rgba(0,0,0,.02)}
-.mob-dir-head{display:flex;align-items:center;gap:12px;padding:14px 16px;cursor:pointer;transition:background .2s}
-.mob-dir-head:active{background:#F8FAFC}
-.mob-dir .di-ic{width:40px;height:40px;border-radius:12px;font-size:18px}
-.mob-dir .di-name{font-size:14px;font-weight:700;color:#0F172A}
-.mob-dir .di-hook{font-size:11px;color:#94A3B8}
-.mob-dir .chevron{margin-left:auto;font-size:12px;color:#CBD5E1;transition:transform .3s}
-.mob-dir.open .chevron{transform:rotate(180deg);color:#3B82F6}
-.mob-dir-body{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.4,0,.2,1),padding .3s;padding:0 16px}
-.mob-dir.open .mob-dir-body{max-height:400px;padding:0 16px 16px}
-.mob-dir-body .sg-label{margin-top:8px}
-.mob-dir-body .sg-label:first-child{margin-top:0}
-.mob-dir-body .pill{opacity:1;transform:none;animation:none;margin-bottom:6px}
-
-/* ── TIMELINE ── */
-.timeline-sec{padding:40px 24px;max-width:720px;margin:0 auto;text-align:center}
-.tl{display:flex;flex-direction:column;position:relative;padding-left:32px;margin-top:28px}
-.tl::before{content:'';position:absolute;left:11px;top:12px;bottom:12px;width:2px;background:linear-gradient(to bottom,#3B82F6,#10B981);opacity:.15;border-radius:1px}
-.tl-item{display:flex;align-items:flex-start;gap:16px;padding:14px 0;opacity:0;transform:translateY(20px);transition:opacity .5s,transform .5s}
-.tl-item.visible{opacity:1;transform:translateY(0)}
-.tl-dot{width:22px;height:22px;border-radius:50%;background:#fff;border:2px solid #E2E8F0;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#3B82F6;flex-shrink:0;margin-left:-32px;z-index:2;transition:border-color .3s,box-shadow .3s}
-.tl-item.visible .tl-dot{border-color:#3B82F6;box-shadow:0 0 12px rgba(59,130,246,.15)}
-.tl-tx{text-align:left}
-.tl-tx strong{font-size:14px;font-weight:700;color:#0F172A}
-.tl-tx p{font-size:13px;color:#64748B;margin-top:3px;line-height:1.5}
-
-/* ── TOOLS ── */
-.tools-sec{padding:40px 24px;max-width:980px;margin:0 auto}
-.tools-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
-.tool-card{background:#fff;border:1px solid #F1F5F9;border-radius:18px;padding:24px;box-shadow:0 2px 12px rgba(0,0,0,.03);transition:transform .3s,box-shadow .3s,border-color .3s;cursor:pointer;position:relative;overflow:hidden}
-.tool-card:hover{transform:translateY(-4px);box-shadow:0 8px 32px rgba(59,130,246,.08);border-color:#DBEAFE}
-.tool-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:2px 2px 0 0;transition:opacity .3s;opacity:0}
-.tool-card:hover::before{opacity:1}
-.tool-card:nth-child(1)::before{background:#3B82F6}
-.tool-card:nth-child(2)::before{background:#10B981}
-.tool-card:nth-child(3)::before{background:#F59E0B}
-.tool-card:nth-child(4)::before{background:#7C3AED}
-.tool-card:nth-child(5)::before{background:#EF4444}
-.tool-card:nth-child(6)::before{background:#06B6D4}
-.tc-icon{font-size:28px;margin-bottom:12px}
-.tc-name{font-size:16px;font-weight:700;color:#0F172A;margin-bottom:6px}
-.tc-desc{font-size:13px;color:#64748B;line-height:1.5}
-.tc-tag{display:inline-block;margin-top:12px;padding:4px 12px;border-radius:8px;font-size:11px;font-weight:600}
-.tc-tag.live{background:#ECFDF5;color:#059669}
-.tc-tag.soon{background:#F1F5F9;color:#94A3B8}
-
-/* ── PROOF ── */
-.proof-sec{padding:40px 24px;max-width:840px;margin:0 auto}
-.proof-items{display:flex;flex-direction:column;gap:12px;margin-top:24px}
-.proof-item{display:flex;gap:16px;align-items:flex-start;background:#fff;border:1px solid #F1F5F9;border-radius:16px;padding:20px;box-shadow:0 1px 8px rgba(0,0,0,.02);transition:transform .3s,box-shadow .3s}
-.proof-item:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(0,0,0,.05)}
-.pi-num{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;flex-shrink:0}
-.pi-num.red{background:#FEF2F2;color:#EF4444}
-.pi-num.amber{background:#FFFBEB;color:#D97706}
-.pi-num.green{background:#ECFDF5;color:#10B981}
-.pi-body{flex:1}
-.pi-title{font-size:14px;font-weight:700;color:#0F172A;margin-bottom:4px}
-.pi-desc{font-size:13px;color:#64748B;line-height:1.5}
-.pi-src{font-size:11px;color:#CBD5E1;margin-top:6px}
-.pi-src a{color:#94A3B8;text-decoration:underline;text-decoration-color:#E2E8F0;transition:color .2s}
-.pi-src a:hover{color:#3B82F6}
-
-/* ── ROADMAP ── */
-.roadmap-sec{padding:40px 24px;max-width:720px;margin:0 auto;text-align:center}
-.rm-grid{display:flex;gap:16px;margin-top:24px;flex-wrap:wrap;justify-content:center}
-.rm-card{flex:1;min-width:200px;max-width:260px;background:#fff;border:1px solid #F1F5F9;border-radius:16px;padding:20px;text-align:left;box-shadow:0 1px 8px rgba(0,0,0,.02);transition:transform .3s,box-shadow .3s;position:relative;overflow:hidden}
-.rm-card:hover{transform:translateY(-3px);box-shadow:0 4px 16px rgba(0,0,0,.05)}
-.rm-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
-.rm-card:nth-child(1)::before{background:#3B82F6}.rm-card:nth-child(2)::before{background:#10B981}.rm-card:nth-child(3)::before{background:#7C3AED}
-.rm-q{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#94A3B8;margin-bottom:8px}
-.rm-title{font-size:14px;font-weight:700;color:#0F172A;margin-bottom:4px}
-.rm-desc{font-size:12px;color:#64748B;line-height:1.5}
-.rm-status{display:inline-block;margin-top:10px;padding:3px 10px;border-radius:6px;font-size:10px;font-weight:600}
-.rm-status.now{background:#ECFDF5;color:#059669}
-.rm-status.next{background:#EFF6FF;color:#3B82F6}
-.rm-status.later{background:#F1F5F9;color:#94A3B8}
-
-.final-cta{padding:48px 24px;text-align:center;position:relative}
-.final-cta::before{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:500px;height:350px;background:radial-gradient(circle,rgba(59,130,246,.06),transparent 70%);pointer-events:none}
-.final-cta h2{font-size:30px;font-weight:700;letter-spacing:-.5px;color:#0F172A;margin-bottom:8px}
-.final-cta h2 em{font-style:normal;background:linear-gradient(135deg,#3B82F6,#10B981);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.final-cta p{font-size:14px;color:#94A3B8;margin-bottom:24px}
-
-footer{padding:24px;text-align:center;font-size:12px;color:#CBD5E1;border-top:1px solid #F1F5F9}
-
-/* ── RESPONSIVE ── */
-@media(max-width:768px){
-nav{padding:12px 16px}
-.hero{padding:80px 16px 24px}
-.hero h1{font-size:26px}
-.hero .sub{font-size:13px;margin-top:10px}
-.hero .tags{gap:6px;margin-top:14px}
-.hero .tag{padding:5px 12px;font-size:11px}
-.hero .cta-row{margin-top:20px;gap:10px}
-.btn-p{padding:13px 24px;font-size:14px}
-.btn-s{padding:13px 22px;font-size:14px}
-.stats{gap:10px;padding:20px 16px 24px}
-.stat{padding:12px 14px;min-width:90px}
-.stat-n{font-size:24px}
-.stat-l{font-size:10px}
-.sec-title{font-size:22px}
-.sec-sub{font-size:13px;margin-bottom:20px}
-/* Hide desktop map, show mobile accordion */
-.map-split{display:none!important}
-.mob-map{display:block}
-.map-section{padding:32px 16px 40px}
+/* ===== TIMELINE ===== */
 .timeline-sec{padding:32px 16px}
-.tl{margin-top:20px}
-.tools-sec{padding:32px 16px}
-.tools-grid{grid-template-columns:1fr;gap:12px;margin-top:20px}
-.tool-card{padding:20px}
-.proof-sec{padding:32px 16px}
-.proof-item{flex-direction:column;gap:10px;padding:16px}
-.pi-num{width:40px;height:40px;font-size:14px}
-.roadmap-sec{padding:32px 16px}
-.rm-grid{flex-direction:column;align-items:stretch;gap:12px;margin-top:20px}
-.rm-card{max-width:100%}
-.final-cta{padding:40px 16px}
-.final-cta h2{font-size:24px}
+.tl-steps{display:flex;flex-direction:column;gap:16px;max-width:480px;margin:0 auto}
+.tl-step{display:flex;gap:14px;align-items:flex-start;padding:16px;border-radius:14px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);position:relative;overflow:hidden}
+.tl-step::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,#3B82F6,#8B5CF6);border-radius:0 3px 3px 0;opacity:0;transition:opacity .4s}
+.tl-step.visible::before{opacity:1}
+.tl-num{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#3B82F6,#8B5CF6);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;color:#fff;flex-shrink:0}
+.tl-text strong{display:block;font-size:15px;margin-bottom:4px}
+.tl-text span{font-size:13px;color:#94A3B8;line-height:1.5}
+
+/* ===== TOOLS (HORIZONTAL SCROLL) ===== */
+.tools-sec{padding:32px 0}
+.tools-scroll{display:flex;gap:14px;overflow-x:auto;padding:0 16px 16px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.tools-scroll::-webkit-scrollbar{display:none}
+.tool-card{min-width:260px;max-width:280px;padding:20px;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);scroll-snap-align:start;flex-shrink:0;position:relative;overflow:hidden}
+.tool-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#3B82F6,#8B5CF6);opacity:0;transition:opacity .3s}
+.tool-card:first-child::before{opacity:1}
+.tool-icon{font-size:28px;margin-bottom:12px}
+.tool-card h3{font-size:15px;font-weight:600;margin-bottom:6px}
+.tool-card p{font-size:13px;color:#94A3B8;line-height:1.5}
+.tool-badge{display:inline-block;margin-top:10px;font-size:11px;padding:4px 10px;border-radius:20px;font-weight:600}
+.tool-badge.live{background:rgba(34,197,94,.15);color:#4ADE80}
+.tool-badge.soon{background:rgba(59,130,246,.12);color:#93C5FD}
+
+/* ===== PROOF (SWIPE CARDS) ===== */
+.proof-sec{padding:32px 0}
+.proof-scroll{display:flex;gap:14px;overflow-x:auto;padding:0 16px 16px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.proof-scroll::-webkit-scrollbar{display:none}
+.proof-card{min-width:280px;max-width:300px;padding:24px;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);scroll-snap-align:start;flex-shrink:0}
+.proof-num{font-size:42px;font-weight:700;line-height:1;margin-bottom:10px;background:linear-gradient(135deg,#3B82F6,#A78BFA);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.proof-num.amber{background:linear-gradient(135deg,#F59E0B,#F97316);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.proof-num.red{background:linear-gradient(135deg,#EF4444,#F97316);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.proof-num.green{background:linear-gradient(135deg,#22C55E,#3B82F6);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.proof-card h3{font-size:14px;font-weight:600;margin-bottom:6px}
+.proof-card p{font-size:13px;color:#94A3B8;line-height:1.5}
+.proof-src{margin-top:10px}
+.proof-src a{font-size:11px;color:#64748B;text-decoration:underline;text-underline-offset:2px}
+
+/* ===== ROADMAP (HORIZONTAL) ===== */
+.road-sec{padding:32px 0}
+.road-scroll{display:flex;gap:14px;overflow-x:auto;padding:0 16px 16px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.road-scroll::-webkit-scrollbar{display:none}
+.road-card{min-width:240px;max-width:260px;padding:20px;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);scroll-snap-align:start;flex-shrink:0;position:relative}
+.road-when{font-size:11px;font-weight:600;color:#3B82F6;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+.road-card h3{font-size:15px;font-weight:600;margin-bottom:6px}
+.road-card p{font-size:13px;color:#94A3B8;line-height:1.5}
+.road-status{display:inline-block;margin-top:10px;font-size:11px;padding:4px 10px;border-radius:20px;font-weight:600;background:rgba(59,130,246,.12);color:#93C5FD}
+.road-status.launched{background:rgba(34,197,94,.15);color:#4ADE80}
+
+/* ===== CTA ===== */
+.final-cta{text-align:center;padding:40px 24px;position:relative}
+.final-cta::before{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,rgba(59,130,246,.3),transparent)}
+.final-cta h2{font-size:24px;font-weight:700;margin-bottom:10px}
+.final-cta h2 em{font-style:normal;background:linear-gradient(135deg,#3B82F6,#A78BFA);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.final-cta p{font-size:14px;color:#64748B;margin-bottom:24px}
+.final-cta a{display:inline-block;padding:14px 36px;border-radius:28px;background:linear-gradient(135deg,#3B82F6,#8B5CF6);color:#fff;font-weight:700;font-size:15px;animation:ctaGlow 2.5s ease-in-out infinite}
+
+/* ===== FOOTER ===== */
+footer{text-align:center;padding:24px;font-size:12px;color:#475569;border-top:1px solid rgba(255,255,255,.05)}
+
+/* ===== SCROLL HINT (dots) ===== */
+.scroll-hint{display:flex;justify-content:center;gap:6px;margin-top:8px}
+.scroll-hint span{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.15)}
+.scroll-hint span:first-child{background:rgba(59,130,246,.6)}
+
+/* ===== ANIMATIONS ===== */
+.fu{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.fu.visible{opacity:1;transform:none}
+
+/* ===== DESKTOP ===== */
+@media(min-width:769px){
+  .hero h1{font-size:52px}
+  .hero-sub{font-size:17px}
+  .mob-map{display:none}
+  .map-desk{display:flex;gap:24px;padding:0 48px;max-width:960px;margin:0 auto}
+  .map-left{width:220px;display:flex;flex-direction:column;gap:8px}
+  .map-dir{display:flex;align-items:center;gap:10px;padding:12px 16px;border-radius:12px;cursor:pointer;border:1px solid rgba(255,255,255,.06);transition:all .3s}
+  .map-dir.active{background:rgba(59,130,246,.1);border-color:rgba(59,130,246,.3)}
+  .map-dir .dir-icon{font-size:20px}
+  .map-dir .dir-name{font-size:14px;font-weight:600}
+  .map-right{flex:1;padding:24px;border-radius:16px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06)}
+  .desk-step-group{margin-bottom:16px}
+  .desk-step-group-label{font-size:11px;color:#3B82F6;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+  .desk-step{display:flex;align-items:center;gap:10px;padding:8px 12px;border-radius:10px;background:rgba(255,255,255,.04);margin-bottom:6px}
+  .desk-step-num{width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,#3B82F6,#8B5CF6);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;flex-shrink:0}
+  .desk-step-name{font-size:14px;color:#CBD5E1}
+  .tools-scroll,.proof-scroll,.road-scroll{flex-wrap:wrap;justify-content:center;overflow:visible;padding:0 48px}
+  .tool-card,.proof-card,.road-card{min-width:auto;max-width:280px;flex:1 1 280px}
+  .scroll-hint{display:none}
+  .tl-steps{flex-direction:row;max-width:900px}
+  .tl-step{flex:1;flex-direction:column;align-items:center;text-align:center}
+  .tl-step::before{display:none}
+  .stats{gap:24px}
+  .sec-title{font-size:32px}
+  .final-cta h2{font-size:32px}
+  .map-sec,.timeline-sec,.tools-sec,.proof-sec,.road-sec{padding:48px 0}
 }
-.fu{opacity:0;transform:translateY(24px);transition:opacity .6s,transform .6s}
-.fu.visible{opacity:1;transform:translateY(0)}
 </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav>
-<a href="#" class="logo">навырост<span>.</span></a>
-<button class="cta-nav">Попробовать</button>
+  <div class="logo">навырост<em>.</em></div>
+  <a href="#calc" class="nav-cta">Попробовать</a>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
-<h1>Всё, что нужно, чтобы<br><em>запустить и не облажаться</em></h1>
-<p class="sub">Калькуляторы, шаблоны, гайды. Вводишь свои цифры — видишь, что на самом деле происходит с бизнесом.</p>
-<div class="tags">
-<div class="tag">Калькуляторы</div>
-<div class="tag">Шаблоны</div>
-<div class="tag">Гайды</div>
-<div class="tag">Бесплатно</div>
-<div class="tag">Без регистрации</div>
-</div>
-<div class="cta-row">
-<button class="btn-p">Начать <span class="arr">→</span></button>
-<button class="btn-s">Что тут есть</button>
-</div>
+  <h1>Запустить и <em>развивать</em> бизнес</h1>
+  <p class="hero-sub">Вводишь свои цифры — видишь, что на самом деле происходит. Калькуляторы, шаблоны, гайды — всё бесплатно.</p>
+  <a href="#calc" class="hero-cta">Открыть калькулятор</a>
+  <div class="hero-tags">
+    <span class="hero-tag">Калькуляторы</span>
+    <span class="hero-tag">Шаблоны</span>
+    <span class="hero-tag">Гайды</span>
+    <span class="hero-tag">Бесплатно</span>
+  </div>
 </section>
 
-<section class="stats fu">
-<div class="stat"><div class="stat-n">5</div><div class="stat-l">направлений</div></div>
-<div class="stat"><div class="stat-n">17</div><div class="stat-l">шагов</div></div>
-<div class="stat"><div class="stat-n">2 мин</div><div class="stat-l">на расчёт</div></div>
+<!-- STATS -->
+<div class="stats">
+  <div class="stat-card fu"><div class="num">5</div><div class="label">направлений</div></div>
+  <div class="stat-card fu"><div class="num">17</div><div class="label">шагов</div></div>
+  <div class="stat-card fu"><div class="num">2 мин</div><div class="label">на расчёт</div></div>
+</div>
+
+<!-- MAP -->
+<section class="map-sec">
+  <div class="sec-title fu">Что внутри <em>платформы</em></div>
+  <p class="sec-sub fu">Нажми на направление — посмотри шаги</p>
+
+  <!-- MOBILE ACCORDION -->
+  <div class="mob-map">
+    <div class="mob-dir active" data-dir="fin">
+      <div class="mob-dir-head">
+        <div class="dir-icon">📊</div>
+        <div class="dir-info"><div class="dir-name">Финансы</div><div class="dir-hook">Маржа, себестоимость, P&L</div></div>
+        <div class="dir-arrow">▼</div>
+      </div>
+      <div class="mob-dir-body">
+        <div class="mob-steps">
+          <div class="mob-step-group"><div class="mob-step-group-label">Учёт</div>
+            <div class="mob-step"><div class="mob-step-num">1</div><div class="mob-step-name">Юнит-экономика</div></div>
+            <div class="mob-step"><div class="mob-step-num">2</div><div class="mob-step-name">Себестоимость и ценообразование</div></div>
+          </div>
+          <div class="mob-step-group"><div class="mob-step-group-label">Планирование</div>
+            <div class="mob-step"><div class="mob-step-num">3</div><div class="mob-step-name">P&L на 12 месяцев</div></div>
+            <div class="mob-step"><div class="mob-step-num">4</div><div class="mob-step-name">Налоги и режимы</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mob-dir" data-dir="mkt">
+      <div class="mob-dir-head">
+        <div class="dir-icon">📣</div>
+        <div class="dir-info"><div class="dir-name">Маркетинг</div><div class="dir-hook">Трафик, воронка, стоимость клиента</div></div>
+        <div class="dir-arrow">▼</div>
+      </div>
+      <div class="mob-dir-body">
+        <div class="mob-steps">
+          <div class="mob-step-group"><div class="mob-step-group-label">Цифры</div>
+            <div class="mob-step"><div class="mob-step-num">1</div><div class="mob-step-name">ЦА и JTBD</div></div>
+            <div class="mob-step"><div class="mob-step-num">2</div><div class="mob-step-name">Аналитика и метрики</div></div>
+          </div>
+          <div class="mob-step-group"><div class="mob-step-group-label">Действия</div>
+            <div class="mob-step"><div class="mob-step-num">3</div><div class="mob-step-name">Позиционирование и УТП</div></div>
+            <div class="mob-step"><div class="mob-step-num">4</div><div class="mob-step-name">Каналы привлечения</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mob-dir" data-dir="prod">
+      <div class="mob-dir-head">
+        <div class="dir-icon">🧪</div>
+        <div class="dir-info"><div class="dir-name">Продукт</div><div class="dir-hook">Ценность, MVP, тестирование</div></div>
+        <div class="dir-arrow">▼</div>
+      </div>
+      <div class="mob-dir-body">
+        <div class="mob-steps">
+          <div class="mob-step-group"><div class="mob-step-group-label">Смысл</div>
+            <div class="mob-step"><div class="mob-step-num">1</div><div class="mob-step-name">Ценностное предложение</div></div>
+            <div class="mob-step"><div class="mob-step-num">2</div><div class="mob-step-name">MVP</div></div>
+          </div>
+          <div class="mob-step-group"><div class="mob-step-group-label">Проверка</div>
+            <div class="mob-step"><div class="mob-step-num">3</div><div class="mob-step-name">Тестирование и обратная связь</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mob-dir" data-dir="hr">
+      <div class="mob-dir-head">
+        <div class="dir-icon">👥</div>
+        <div class="dir-info"><div class="dir-name">HR и ресурсы</div><div class="dir-hook">Оргструктура, найм, KPI</div></div>
+        <div class="dir-arrow">▼</div>
+      </div>
+      <div class="mob-dir-body">
+        <div class="mob-steps">
+          <div class="mob-step-group"><div class="mob-step-group-label">Структура</div>
+            <div class="mob-step"><div class="mob-step-num">1</div><div class="mob-step-name">Оргструктура</div></div>
+            <div class="mob-step"><div class="mob-step-num">2</div><div class="mob-step-name">Найм и онбординг</div></div>
+          </div>
+          <div class="mob-step-group"><div class="mob-step-group-label">Управление</div>
+            <div class="mob-step"><div class="mob-step-num">3</div><div class="mob-step-name">Мотивация и KPI</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mob-dir" data-dir="law">
+      <div class="mob-dir-head">
+        <div class="dir-icon">⚖️</div>
+        <div class="dir-info"><div class="dir-name">Право</div><div class="dir-hook">Регистрация, налоги, договоры</div></div>
+        <div class="dir-arrow">▼</div>
+      </div>
+      <div class="mob-dir-body">
+        <div class="mob-steps">
+          <div class="mob-step-group"><div class="mob-step-group-label">Старт</div>
+            <div class="mob-step"><div class="mob-step-num">1</div><div class="mob-step-name">Регистрация: ИП, ООО, самозанятость</div></div>
+            <div class="mob-step"><div class="mob-step-num">2</div><div class="mob-step-name">Выбор налогового режима</div></div>
+          </div>
+          <div class="mob-step-group"><div class="mob-step-group-label">Документы</div>
+            <div class="mob-step"><div class="mob-step-num">3</div><div class="mob-step-name">Договоры и шаблоны</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DESKTOP MAP (hidden on mobile) -->
+  <div class="map-desk">
+    <div class="map-left">
+      <div class="map-dir active" data-dir="fin"><span class="dir-icon">📊</span><span class="dir-name">Финансы</span></div>
+      <div class="map-dir" data-dir="mkt"><span class="dir-icon">📣</span><span class="dir-name">Маркетинг</span></div>
+      <div class="map-dir" data-dir="prod"><span class="dir-icon">🧪</span><span class="dir-name">Продукт</span></div>
+      <div class="map-dir" data-dir="hr"><span class="dir-icon">👥</span><span class="dir-name">HR и ресурсы</span></div>
+      <div class="map-dir" data-dir="law"><span class="dir-icon">⚖️</span><span class="dir-name">Право</span></div>
+    </div>
+    <div class="map-right" id="desk-steps"></div>
+  </div>
 </section>
 
-<section class="map-section fu">
-<div class="sec-title">Что внутри <em>платформы</em></div>
-<p class="sec-sub">5 направлений — наведи, чтобы увидеть шаги</p>
-
-<!-- DESKTOP -->
-<div class="map-split">
-<div class="dir-col" id="dirs">
-<div class="trunk"><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
-<div class="dir-item c1 on" data-i="0"><div class="di-ic">📊</div><div class="di-tx"><div class="di-name">Финансы</div><div class="di-hook">Маржа, себестоимость, P&L</div></div></div>
-<div class="dir-item c2" data-i="1"><div class="di-ic">📣</div><div class="di-tx"><div class="di-name">Маркетинг</div><div class="di-hook">Трафик, воронка, стоимость клиента</div></div></div>
-<div class="dir-item c3" data-i="2"><div class="di-ic">🧪</div><div class="di-tx"><div class="di-name">Продукт</div><div class="di-hook">Ценность, MVP, тестирование</div></div></div>
-<div class="dir-item c4" data-i="3"><div class="di-ic">👥</div><div class="di-tx"><div class="di-name">HR и ресурсы</div><div class="di-hook">Оргструктура, найм, KPI</div></div></div>
-<div class="dir-item c5" data-i="4"><div class="di-ic">⚖️</div><div class="di-tx"><div class="di-name">Право</div><div class="di-hook">Регистрация, налоги, договоры</div></div></div>
-</div>
-<div class="steps-col bc1" id="stepsCol">
-<div class="step-group c1-pills on" data-g="0">
-<div class="sg-label">Учёт</div>
-<div class="pill"><div class="nm">1</div><span class="lb">Юнит-экономика</span></div>
-<div class="pill"><div class="nm">2</div><span class="lb">Себестоимость и ценообразование</span></div>
-<div class="sg-label">Планирование</div>
-<div class="pill"><div class="nm">3</div><span class="lb">P&L на 12 месяцев</span></div>
-<div class="pill"><div class="nm">4</div><span class="lb">Налоги и режимы</span></div>
-</div>
-<div class="step-group c2-pills" data-g="1">
-<div class="sg-label">Цифры</div>
-<div class="pill"><div class="nm">1</div><span class="lb">Целевая аудитория и JTBD</span></div>
-<div class="pill"><div class="nm">2</div><span class="lb">Аналитика и метрики</span></div>
-<div class="sg-label">Действия</div>
-<div class="pill"><div class="nm">3</div><span class="lb">Позиционирование и УТП</span></div>
-<div class="pill"><div class="nm">4</div><span class="lb">Каналы привлечения</span></div>
-</div>
-<div class="step-group c3-pills" data-g="2">
-<div class="sg-label">Смысл</div>
-<div class="pill"><div class="nm">1</div><span class="lb">Ценностное предложение</span></div>
-<div class="pill"><div class="nm">2</div><span class="lb">MVP</span></div>
-<div class="sg-label">Проверка</div>
-<div class="pill"><div class="nm">3</div><span class="lb">Тестирование и обратная связь</span></div>
-</div>
-<div class="step-group c4-pills" data-g="3">
-<div class="sg-label">Структура</div>
-<div class="pill"><div class="nm">1</div><span class="lb">Оргструктура</span></div>
-<div class="pill"><div class="nm">2</div><span class="lb">Найм и онбординг</span></div>
-<div class="sg-label">Управление</div>
-<div class="pill"><div class="nm">3</div><span class="lb">Мотивация и KPI</span></div>
-</div>
-<div class="step-group c5-pills" data-g="4">
-<div class="sg-label">Старт</div>
-<div class="pill"><div class="nm">1</div><span class="lb">Регистрация: ИП, ООО, самозанятость</span></div>
-<div class="pill"><div class="nm">2</div><span class="lb">Выбор налогового режима</span></div>
-<div class="sg-label">Документы</div>
-<div class="pill"><div class="nm">3</div><span class="lb">Договоры и шаблоны</span></div>
-</div>
-</div>
-</div>
-
-<!-- MOBILE ACCORDION -->
-<div class="mob-map" id="mobMap">
-<div class="mob-dir c1" data-m="0">
-<div class="mob-dir-head"><div class="di-ic">📊</div><div class="di-tx"><div class="di-name">Финансы</div><div class="di-hook">Маржа, себестоимость, P&L</div></div><div class="chevron">▼</div></div>
-<div class="mob-dir-body c1-pills">
-<div class="sg-label">Учёт</div>
-<div class="pill"><div class="nm">1</div><span class="lb">Юнит-экономика</span></div>
-<div class="pill"><div class="nm">2</div><span class="lb">Себестоимость и ценообразование</span></div>
-<div class="sg-label">Планирование</div>
-<div class="pill"><div class="nm">3</div><span class="lb">P&L на 12 месяцев</span></div>
-<div class="pill"><div class="nm">4</div><span class="lb">Налоги и режимы</span></div>
-</div>
-</div>
-<div class="mob-dir c2" data-m="1">
-<div class="mob-dir-head"><div class="di-ic">📣</div><div class="di-tx"><div class="di-name">Маркетинг</div><div class="di-hook">Трафик, воронка, стоимость клиента</div></div><div class="chevron">▼</div></div>
-<div class="mob-dir-body c2-pills">
-<div class="sg-label">Цифры</div>
-<div class="pill"><div class="nm">1</div><span class="lb">ЦА и JTBD</span></div>
-<div class="pill"><div class="nm">2</div><span class="lb">Аналитика и метрики</span></div>
-<div class="sg-label">Действия</div>
-<div class="pill"><div class="nm">3</div><span class="lb">Позиционирование и УТП</span></div>
-<div class="pill"><div class="nm">4</div><span class="lb">Каналы привлечения</span></div>
-</div>
-</div>
-<div class="mob-dir c3" data-m="2">
-<div class="mob-dir-head"><div class="di-ic">🧪</div><div class="di-tx"><div class="di-name">Продукт</div><div class="di-hook">Ценность, MVP, тестирование</div></div><div class="chevron">▼</div></div>
-<div class="mob-dir-body c3-pills">
-<div class="sg-label">Смысл</div>
-<div class="pill"><div class="nm">1</div><span class="lb">Ценностное предложение</span></div>
-<div class="pill"><div class="nm">2</div><span class="lb">MVP</span></div>
-<div class="sg-label">Проверка</div>
-<div class="pill"><div class="nm">3</div><span class="lb">Тестирование и обратная связь</span></div>
-</div>
-</div>
-<div class="mob-dir c4" data-m="3">
-<div class="mob-dir-head"><div class="di-ic">👥</div><div class="di-tx"><div class="di-name">HR и ресурсы</div><div class="di-hook">Оргструктура, найм, KPI</div></div><div class="chevron">▼</div></div>
-<div class="mob-dir-body c4-pills">
-<div class="sg-label">Структура</div>
-<div class="pill"><div class="nm">1</div><span class="lb">Оргструктура</span></div>
-<div class="pill"><div class="nm">2</div><span class="lb">Найм и онбординг</span></div>
-<div class="sg-label">Управление</div>
-<div class="pill"><div class="nm">3</div><span class="lb">Мотивация и KPI</span></div>
-</div>
-</div>
-<div class="mob-dir c5" data-m="4">
-<div class="mob-dir-head"><div class="di-ic">⚖️</div><div class="di-tx"><div class="di-name">Право</div><div class="di-hook">Регистрация, налоги, договоры</div></div><div class="chevron">▼</div></div>
-<div class="mob-dir-body c5-pills">
-<div class="sg-label">Старт</div>
-<div class="pill"><div class="nm">1</div><span class="lb">Регистрация: ИП, ООО, самозанятость</span></div>
-<div class="pill"><div class="nm">2</div><span class="lb">Выбор налогового режима</span></div>
-<div class="sg-label">Документы</div>
-<div class="pill"><div class="nm">3</div><span class="lb">Договоры и шаблоны</span></div>
-</div>
-</div>
-</div>
+<!-- TIMELINE -->
+<section class="timeline-sec">
+  <div class="sec-title fu">Как это <em>работает</em></div>
+  <p class="sec-sub fu">Без теории — сразу в цифры</p>
+  <div class="tl-steps">
+    <div class="tl-step fu">
+      <div class="tl-num">1</div>
+      <div class="tl-text"><strong>Выбираешь направление</strong><span>Финансы, маркетинг, продукт, команда или право.</span></div>
+    </div>
+    <div class="tl-step fu">
+      <div class="tl-num">2</div>
+      <div class="tl-text"><strong>Вбиваешь свои цифры</strong><span>Выручка, расходы, клиенты — только то, что знаешь.</span></div>
+    </div>
+    <div class="tl-step fu">
+      <div class="tl-num">3</div>
+      <div class="tl-text"><strong>Видишь результат</strong><span>Таблица, вердикт, рекомендация. Скачиваешь или сохраняешь.</span></div>
+    </div>
+  </div>
 </section>
 
-<section class="timeline-sec fu">
-<div class="sec-title">Как это <em>работает</em></div>
-<p class="sec-sub">Без теории — сразу в цифры</p>
-<div class="tl">
-<div class="tl-item"><div class="tl-dot">1</div><div class="tl-tx"><strong>Выбираешь направление</strong><p>Финансы, маркетинг, продукт, команда или право.</p></div></div>
-<div class="tl-item"><div class="tl-dot">2</div><div class="tl-tx"><strong>Вбиваешь свои цифры</strong><p>Выручка, расходы, клиенты — только то, что знаешь.</p></div></div>
-<div class="tl-item"><div class="tl-dot">3</div><div class="tl-tx"><strong>Видишь результат</strong><p>Таблица, вердикт, рекомендация. Скачиваешь или сохраняешь.</p></div></div>
-</div>
+<!-- TOOLS -->
+<section class="tools-sec">
+  <div class="sec-title fu">Что уже <em>готово</em></div>
+  <p class="sec-sub fu">Готовое и в работе</p>
+  <div class="tools-scroll">
+    <div class="tool-card">
+      <div class="tool-icon">🔢</div>
+      <h3>Юнит-экономика</h3>
+      <p>Выручка, расходы, клиенты — видишь маржу и понимаешь, зарабатываешь или нет.</p>
+      <span class="tool-badge live">Работает</span>
+    </div>
+    <div class="tool-card">
+      <div class="tool-icon">💰</div>
+      <h3>P&L калькулятор</h3>
+      <p>Прогноз прибыли и убытков на 12 месяцев. Точка безубыточности.</p>
+      <span class="tool-badge soon">Скоро</span>
+    </div>
+    <div class="tool-card">
+      <div class="tool-icon">🧮</div>
+      <h3>Калькулятор налогов</h3>
+      <p>УСН, патент, ОСНО — сравнение режимов на твоих цифрах.</p>
+      <span class="tool-badge soon">Скоро</span>
+    </div>
+    <div class="tool-card">
+      <div class="tool-icon">📋</div>
+      <h3>Шаблоны документов</h3>
+      <p>Договоры, оферты, NDA, акты — скачивай и подставляй свои данные.</p>
+      <span class="tool-badge soon">Скоро</span>
+    </div>
+    <div class="tool-card">
+      <div class="tool-icon">📊</div>
+      <h3>Маркетинг-дашборд</h3>
+      <p>Стоимость клиента, ROI каналов, конверсия воронки.</p>
+      <span class="tool-badge soon">Скоро</span>
+    </div>
+    <div class="tool-card">
+      <div class="tool-icon">📚</div>
+      <h3>Гайды</h3>
+      <p>Как открыть ИП, выбрать режим, нанять первого сотрудника — по шагам.</p>
+      <span class="tool-badge soon">Скоро</span>
+    </div>
+  </div>
+  <div class="scroll-hint"><span></span><span></span><span></span><span></span><span></span><span></span></div>
 </section>
 
-<section class="tools-sec fu">
-<div class="sec-title">Что уже <em>готово</em></div>
-<p class="sec-sub">Готовое и в работе</p>
-<div class="tools-grid">
-<div class="tool-card"><div class="tc-icon">🔢</div><div class="tc-name">Юнит-экономика</div><div class="tc-desc">Выручка, расходы, клиенты — видишь маржу и понимаешь, зарабатываешь или нет.</div><div class="tc-tag live">Работает</div></div>
-<div class="tool-card"><div class="tc-icon">💰</div><div class="tc-name">P&L калькулятор</div><div class="tc-desc">Прогноз прибыли и убытков на 12 месяцев. Точка безубыточности.</div><div class="tc-tag soon">Скоро</div></div>
-<div class="tool-card"><div class="tc-icon">🧮</div><div class="tc-name">Калькулятор налогов</div><div class="tc-desc">УСН, патент, ОСНО — сравнение режимов на твоих цифрах.</div><div class="tc-tag soon">Скоро</div></div>
-<div class="tool-card"><div class="tc-icon">📋</div><div class="tc-name">Шаблоны документов</div><div class="tc-desc">Договоры, оферты, NDA, акты — скачивай и подставляй свои данные.</div><div class="tc-tag soon">Скоро</div></div>
-<div class="tool-card"><div class="tc-icon">📊</div><div class="tc-name">Маркетинг-дашборд</div><div class="tc-desc">Стоимость клиента, ROI каналов, конверсия воронки.</div><div class="tc-tag soon">Скоро</div></div>
-<div class="tool-card"><div class="tc-icon">📚</div><div class="tc-name">Гайды</div><div class="tc-desc">Как открыть ИП, выбрать налоговый режим, нанять первого сотрудника — по шагам.</div><div class="tc-tag soon">Скоро</div></div>
-</div>
+<!-- PROOF -->
+<section class="proof-sec">
+  <div class="sec-title fu">Правила <em>изменились</em></div>
+  <p class="sec-sub fu">В 2026 году считать — уже не опция</p>
+  <div class="proof-scroll">
+    <div class="proof-card">
+      <div class="proof-num amber">22%</div>
+      <h3>НДС с января 2026 — был 20%, стал 22%</h3>
+      <p>ИП на УСН с доходом от 20 млн тоже платят НДС. Не пересчитал цены — маржа уже поехала.</p>
+      <div class="proof-src"><a href="https://sberbusiness.live/publications/izmeneniye-nalogov-v-2026-godu" target="_blank">СберБизнес / ФЗ №425</a></div>
+    </div>
+    <div class="proof-card">
+      <div class="proof-num red">15%</div>
+      <h3>Предпринимателей думают закрыться после реформы</h3>
+      <p>Не потому что бизнес плохой — потому что цифры не пересчитали. Кто пересчитал — в порядке.</p>
+      <div class="proof-src"><a href="https://ppc.world/news/15-predprinimateley-dumayut-zakryt-biznes-posle-nachala-nalogovoy-reformy-v-2026-godu-issledovanie/" target="_blank">ppc.world — исследование</a></div>
+    </div>
+    <div class="proof-card">
+      <div class="proof-num green">2 мин</div>
+      <h3>Понять, сходится или нет</h3>
+      <p>Вбиваешь выручку и расходы — калькулятор показывает маржу и точку безубыточности. Без курсов и консультантов.</p>
+    </div>
+  </div>
+  <div class="scroll-hint"><span></span><span></span><span></span></div>
 </section>
 
-<section class="proof-sec fu">
-<div class="sec-title">Правила <em>изменились</em></div>
-<p class="sec-sub">В 2026 году считать — уже не опция</p>
-<div class="proof-items">
-<div class="proof-item"><div class="pi-num amber">22%</div><div class="pi-body"><div class="pi-title">НДС с января 2026 — вырос с 20% до 22%</div><div class="pi-desc">ИП на УСН с доходом от 20 млн теперь тоже платят НДС. Если не пересчитал цены — маржа уже поехала, а ты ещё не заметил.</div><div class="pi-src"><a href="https://sberbusiness.live/publications/izmeneniye-nalogov-v-2026-godu" target="_blank">СберБизнес</a> / ФЗ №425</div></div></div>
-<div class="proof-item"><div class="pi-num red">15%</div><div class="pi-body"><div class="pi-title">предпринимателей думают закрыться после реформы</div><div class="pi-desc">Не потому что бизнес плохой — потому что цифры не пересчитали. У тех, кто пересчитал, всё нормально.</div><div class="pi-src"><a href="https://ppc.world/news/15-predprinimateley-dumayut-zakryt-biznes-posle-nachala-nalogovoy-reformy-v-2026-godu-issledovanie/" target="_blank">ppc.world — ноябрь 2025</a></div></div></div>
-<div class="proof-item"><div class="pi-num green">2 мин</div><div class="pi-body"><div class="pi-title">чтобы понять, сходится у тебя или нет</div><div class="pi-desc">Вбиваешь выручку и расходы — калькулятор показывает маржу и точку безубыточности. Без курсов и консультантов.</div></div></div>
-</div>
+<!-- ROADMAP -->
+<section class="road-sec">
+  <div class="sec-title fu">Куда <em>растём</em></div>
+  <p class="sec-sub fu">навырост. — платформа, и она развивается</p>
+  <div class="road-scroll">
+    <div class="road-card">
+      <div class="road-when">Сейчас</div>
+      <h3>Калькуляторы</h3>
+      <p>Юнит-экономика, P&L, налоги — базовые расчёты для старта и проверки модели.</p>
+      <span class="road-status launched">Запущено</span>
+    </div>
+    <div class="road-card">
+      <div class="road-when">Весна 2026</div>
+      <h3>Шаблоны и гайды</h3>
+      <p>Документы, инструкции, чек-листы — всё между «посчитал» и «сделал».</p>
+      <span class="road-status">В работе</span>
+    </div>
+    <div class="road-card">
+      <div class="road-when">Лето 2026</div>
+      <h3>Обучение</h3>
+      <p>Мини-курсы по финансам, маркетингу, праву. Практика на своих данных.</p>
+      <span class="road-status">Планируем</span>
+    </div>
+  </div>
+  <div class="scroll-hint"><span></span><span></span><span></span></div>
 </section>
 
-<section class="roadmap-sec fu">
-<div class="sec-title">Куда <em>растём</em></div>
-<p class="sec-sub">навырост. — это платформа, и она развивается</p>
-<div class="rm-grid">
-<div class="rm-card"><div class="rm-q">Сейчас</div><div class="rm-title">Калькуляторы</div><div class="rm-desc">Юнит-экономика, P&L, налоги — базовые расчёты для старта и проверки модели.</div><div class="rm-status now">Запущено</div></div>
-<div class="rm-card"><div class="rm-q">Весна 2026</div><div class="rm-title">Шаблоны и гайды</div><div class="rm-desc">Документы, инструкции, чек-листы — всё между «посчитал» и «сделал».</div><div class="rm-status next">В работе</div></div>
-<div class="rm-card"><div class="rm-q">Лето 2026</div><div class="rm-title">Обучение</div><div class="rm-desc">Мини-курсы по финансам, маркетингу, праву. Практика на своих данных.</div><div class="rm-status later">Планируем</div></div>
-</div>
+<!-- CTA -->
+<section class="final-cta fu" id="calc">
+  <h2>Попробуй <em>прямо сейчас</em></h2>
+  <p>Два поля, одна кнопка, честный результат.</p>
+  <a href="#">Открыть калькулятор</a>
 </section>
 
-<section class="final-cta fu">
-<h2>Попробуй <em>прямо сейчас</em></h2>
-<p>Два поля, одна кнопка, честный результат.</p>
-<div class="cta-row" style="justify-content:center">
-<button class="btn-p">Начать <span class="arr">→</span></button>
-</div>
-</section>
-
+<!-- FOOTER -->
 <footer>
-<p>навырост. — платформа инструментов для бизнеса</p>
+  <p>навырост. — платформа инструментов для бизнеса</p>
 </footer>
 
 <script>
-/* Scroll fade-up */
-const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:.1});
-document.querySelectorAll('.fu,.tl-item').forEach(el=>obs.observe(el));
+// Intersection Observer for fade-up
+const obs=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})
+},{threshold:.15});
+document.querySelectorAll('.fu').forEach(el=>obs.observe(el));
 
-/* Desktop map */
-const dirs=document.querySelectorAll('.dir-item');
-const groups=document.querySelectorAll('.step-group');
-const stepsCol=document.getElementById('stepsCol');
-if(stepsCol){
-const cc=['bc1','bc2','bc3','bc4','bc5'];
-let timer,touch=false,current=0;
-function activate(i){
-dirs.forEach((d,j)=>d.classList.toggle('on',j===i));
-groups.forEach((g,j)=>g.classList.toggle('on',j===i));
-cc.forEach(c=>stepsCol.classList.remove(c));
-stepsCol.classList.add(cc[i]);
-current=i;
-groups[i].querySelectorAll('.pill').forEach(p=>{p.style.animation='none';p.offsetHeight;p.style.animation='';});
-}
-function startAuto(){stopAuto();timer=setInterval(()=>{activate((current+1)%dirs.length)},3500);}
-function stopAuto(){clearInterval(timer);timer=null;}
-dirs.forEach((d,i)=>{
-d.addEventListener('mouseenter',()=>{if(!touch){stopAuto();activate(i);}});
-d.addEventListener('touchstart',()=>{touch=true;stopAuto();activate(i);},{passive:true});
-});
-let lt;
-document.getElementById('dirs').addEventListener('mouseleave',()=>{if(!touch){clearTimeout(lt);lt=setTimeout(startAuto,2000);}});
-document.getElementById('dirs').addEventListener('mouseenter',()=>clearTimeout(lt));
-activate(0);startAuto();
-}
-
-/* Mobile accordion */
+// Mobile accordion
 document.querySelectorAll('.mob-dir-head').forEach(head=>{
-head.addEventListener('click',()=>{
-const dir=head.parentElement;
-const wasOpen=dir.classList.contains('open');
-document.querySelectorAll('.mob-dir').forEach(d=>d.classList.remove('open'));
-if(!wasOpen) dir.classList.add('open');
-});
+  head.addEventListener('click',()=>{
+    const dir=head.parentElement;
+    const isActive=dir.classList.contains('active');
+    // close all
+    document.querySelectorAll('.mob-dir').forEach(d=>d.classList.remove('active'));
+    // open clicked if wasn't active
+    if(!isActive) dir.classList.add('active');
+  });
 });
 
-/* Pill click bounce */
-document.querySelectorAll('.pill').forEach(p=>{p.addEventListener('click',function(){this.style.transform='translateY(-3px) scale(1.08)';setTimeout(()=>this.style.transform='',300);});});
+// Desktop map data
+const stepsData={
+  fin:[{g:'Учёт',s:['Юнит-экономика','Себестоимость и ценообразование']},{g:'Планирование',s:['P&L на 12 месяцев','Налоги и режимы']}],
+  mkt:[{g:'Цифры',s:['ЦА и JTBD','Аналитика и метрики']},{g:'Действия',s:['Позиционирование и УТП','Каналы привлечения']}],
+  prod:[{g:'Смысл',s:['Ценностное предложение','MVP']},{g:'Проверка',s:['Тестирование и обратная связь']}],
+  hr:[{g:'Структура',s:['Оргструктура','Найм и онбординг']},{g:'Управление',s:['Мотивация и KPI']}],
+  law:[{g:'Старт',s:['Регистрация: ИП, ООО, самозанятость','Выбор налогового режима']},{g:'Документы',s:['Договоры и шаблоны']}]
+};
+
+function renderDesk(dir){
+  const c=document.getElementById('desk-steps');
+  if(!c)return;
+  const d=stepsData[dir];
+  let n=1,h='';
+  d.forEach(g=>{
+    h+=`<div class="desk-step-group"><div class="desk-step-group-label">${g.g}</div>`;
+    g.s.forEach(s=>{h+=`<div class="desk-step"><div class="desk-step-num">${n++}</div><div class="desk-step-name">${s}</div></div>`});
+    h+='</div>';
+  });
+  c.innerHTML=h;
+}
+
+document.querySelectorAll('.map-dir').forEach(d=>{
+  d.addEventListener('click',()=>{
+    document.querySelectorAll('.map-dir').forEach(x=>x.classList.remove('active'));
+    d.classList.add('active');
+    renderDesk(d.dataset.dir);
+  });
+});
+
+// Desktop auto-rotate
+let deskIdx=0;
+const dirs=['fin','mkt','prod','hr','law'];
+function autoRotate(){
+  deskIdx=(deskIdx+1)%dirs.length;
+  document.querySelectorAll('.map-dir').forEach(x=>x.classList.remove('active'));
+  const el=document.querySelector(`.map-dir[data-dir="${dirs[deskIdx]}"]`);
+  if(el){el.classList.add('active');renderDesk(dirs[deskIdx])}
+}
+let rotateTimer=setInterval(autoRotate,4000);
+document.querySelectorAll('.map-dir').forEach(d=>{
+  d.addEventListener('click',()=>{clearInterval(rotateTimer);deskIdx=dirs.indexOf(d.dataset.dir)})
+});
+
+// Init desktop
+renderDesk('fin');
 </script>
 </body>
 </html>
